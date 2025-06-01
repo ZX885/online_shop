@@ -9,7 +9,7 @@ const Contacts = () => {
 
                 <div className="contact">
                     <div className="con-div1">
-                        <img src={foto} ></img>
+                        <img data-aos="fade-right" src={foto} ></img>
                     </div>
 
                     <div className="con-div2">

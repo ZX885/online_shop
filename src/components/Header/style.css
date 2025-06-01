@@ -6,9 +6,9 @@
 	justify-content: center;
 	align-items: center;
 
-	background-color: var(--header-bg);
+	background-color: black;
 	/* background-image: url('./../../img/img/shutterstock_518160535-scaled.jpg'); */
-	background-image: url('./../../img/header-bg.png');
+	/* background-image: url('./../../img/header-bg.png'); */
 	background-repeat: no-repeat;
 	background-size: auto;
 	background-position: center center;
@@ -47,4 +47,12 @@
 
 .header__text p + p {
 	margin-top: 0.5em;
+}
+
+
+.boxes{
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+	right: 0;
 }
