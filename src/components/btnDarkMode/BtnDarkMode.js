@@ -28,7 +28,7 @@ const BtnDarkMode = () => {
 
     return (
         <>
-        <button className={darkMode ==='dark'? btnActive:btnNormal} onClick={toggleDarkMode}>
+        <button data-aos="flip-right"data-aos-duration="1200" className={darkMode ==='dark'? btnActive:btnNormal} onClick={toggleDarkMode}>
             <img src={sun} alt="Light mode" className="dark-mode-btn__icon" />
             <img src={moon} alt="Dark mode" className="dark-mode-btn__icon" />
         </button>

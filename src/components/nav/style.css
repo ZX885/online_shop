@@ -44,11 +44,12 @@ body{
 
 .nav-list__link {
 	color: var(--nav-text);
-	transition: opacity 0.5s ease-in;
+	transition: 0.2s ease-in;
 }
 
 .nav-list__link:hover {
 	opacity: 0.8;
+	color: #03a138;
 }
 
 .nav-list__link--active {

@@ -27,39 +27,39 @@ const Footer = () => {
                 </ul>
             </li> */}
             <li className='links-item'>
-              <h1>Pages</h1>
+              <h1>Страницы</h1>
                 <ul>
-                  <a href='/projects'>Projects</a>
+                  <a href='/'>Главная</a>
                 </ul>
                 <ul>
-                  <a href='/'>Page 2</a>
+                  <a href='/projects'>Проекты</a>
                 </ul>
                 <ul>
-                  <a href='/'>Page 3</a>
-                </ul>
-            </li>
-            <li className='links-item'>
-              <h1>Pages</h1>
-                <ul>
-                  <a href='/'>Page 1</a>
-                </ul>
-                <ul>
-                  <a href='/'>Page 2</a>
-                </ul>
-                <ul>
-                  <a href='/'>Page 3</a>
+                  <a href='/contacts'>Контакты</a>
                 </ul>
             </li>
             <li className='links-item'>
-              <h1>May be something</h1>
+              <h1>Связь</h1>
                 <ul>
-                  May be something
+                  <a href='https://t.me/AKM_SHOOT'>Связаться</a>
                 </ul>
                 <ul>
-                  May be something
+                  <a href='tel:+998992609264'>Tel</a>
                 </ul>
                 <ul>
-                  May be something
+                  <a href='mailto:zarruhzakirov@gmail.com'>Email</a>
+                </ul>
+            </li>
+            <li className='links-item'>
+              <h1>Создание</h1>
+                <ul>
+                  E-commerce
+                </ul>
+                <ul>
+                  Landing page
+                </ul>
+                <ul>
+                  Blog
                 </ul>
             </li>
           </ul>

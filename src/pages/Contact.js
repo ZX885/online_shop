@@ -15,20 +15,20 @@ const Contacts = () => {
                     <div className="con-div2">
                         <ul className="content-list">
                             <li className="content-list__item">
-                                <h2 className="title-2">Ф.И.О</h2>
-                                <p>Закиров Заррух</p>
+                                <h2 data-aos="fade-in" className="title-2">Ф.И.О</h2>
+                                <p data-aos="fade-down">Закиров Заррух</p>
                             </li>
                             <li className="content-list__item">
-                                <h2 className="title-2">Локация</h2>
-                                <p>Самарканд, Узбекистан</p>
+                                <h2 data-aos="fade-in" className="title-2">Локация</h2>
+                                <p data-aos="fade-down">Самарканд, Узбекистан</p>
                             </li>
                             <li className="content-list__item">
-                                <h2 className="title-2">Telegram / WhatsApp</h2>
-                                <p><a href="tel:+998992609264">+998 (99) 260-92-64</a></p>
+                                <h2 data-aos="fade-in" className="title-2">Telegram / WhatsApp</h2>
+                                <p data-aos="fade-down"><a href="tel:+998992609264">+998 (99) 260-92-64</a></p>
                             </li>
                             <li className="content-list__item">
-                                <h2 className="title-2">Эл. почта</h2>
-                                <p><a href="mailto:zarruhzakirov@gmail.com">zarruhzakirov@gmail.com</a></p>
+                                <h2 data-aos="fade-in" className="title-2">Эл. почта</h2>
+                                <p data-aos="fade-down"><a href="mailto:zarruhzakirov@gmail.com">zarruhzakirov@gmail.com</a></p>
                             </li>
                         </ul>
                     </div>
