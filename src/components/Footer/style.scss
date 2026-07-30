@@ -1,10 +1,145 @@
+.footer {
+    position: relative;
+    margin-top: 80px;
+    padding: 50px 0 30px;
+    
+    /* Тёмный стеклянный фон */
+    background: rgba(12, 14, 20, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 
+    /* Запас снизу для мобильного Dock навигатора */
+    @media (max-width: 768px) {
+        padding-bottom: 95px;
+    }
 
-// Footer
+    /* Сетка основных колонок с центрированием */
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
-.links-item{
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
 
-    ul{
-        margin: 10px;
+        @media (max-width: 480px) {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+    }
+
+    /* Центрирование внутри каждой колонки */
+    &__col {
+        display: flex;
+        flex-direction: column;
+        align-items: center; // Выравнивает список и содержимое по центру
+        text-align: center;  // Выравнивает текст и заголовки по центру
+    }
+
+    &__title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 16px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center; // Центрирование элементов списка
+        gap: 10px;
+
+        li {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.2s ease;
+
+            a {
+                color: inherit;
+                text-decoration: none;
+                transition: color 0.2s ease, transform 0.2s ease;
+                display: inline-block;
+
+                &:hover {
+                    color: var(--accent, #5c62ec);
+                    transform: translateY(-2px); // При наведении чуть приподнимается вверх
+                }
+            }
+        }
+
+        &--static li {
+            cursor: default;
+        }
+    }
+
+    /* Нижняя часть футера */
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding-top: 30px;
+    }
+}
+
+/* Иконки соцсетей с ховер-эффектами */
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &__item {
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            img {
+                width: 20px;
+                height: 20px;
+                filter: brightness(0) invert(1);
+                transition: transform 0.3s ease;
+            }
+
+            &:hover {
+                background: linear-gradient(135deg, #5c62ec, #8a21e9);
+                border-color: transparent;
+                transform: translateY(-4px);
+                box-shadow: 0 8px 20px rgba(92, 98, 236, 0.4);
+
+                img {
+                    transform: scale(1.15);
+                }
+            }
+        }
+    }
+}
+
+.copyright {
+    p {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.45);
+        text-align: center;
     }
 }

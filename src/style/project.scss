@@ -1,0 +1,155 @@
+.project-page {
+    padding: 40px 0 60px;
+
+    &__back {
+        margin-bottom: 24px;
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s ease, transform 0.2s ease;
+
+            &:hover {
+                color: var(--accent, #5c62ec);
+                transform: translateX(-4px);
+            }
+        }
+    }
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+
+    .title-1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 30px;
+    }
+
+    /* Обложка проекта с неоновой рамкой */
+    &__cover-wrapper {
+        width: 100%;
+        border-radius: 24px;
+        overflow: hidden;
+        background: rgba(15, 17, 23, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(16px);
+        margin-bottom: 40px;
+
+        .project-details__cover {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    /* Информационная стеклянная карточка */
+    &__info {
+        width: 100%;
+        background: rgba(15, 17, 23, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: clamp(24px, 4vw, 40px);
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+    }
+
+    &__text {
+        p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.75);
+        }
+    }
+
+    /* Теги технологий */
+    .skills-tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .skill-tag {
+        font-size: 14px;
+        font-weight: 500;
+        color: #ffffff;
+        background: rgba(92, 98, 236, 0.15);
+        border: 1px solid rgba(92, 98, 236, 0.4);
+        padding: 8px 16px;
+        border-radius: 12px;
+        transition: all 0.25s ease;
+
+        &:hover {
+            background: rgba(92, 98, 236, 0.3);
+            border-color: #5c62ec;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(92, 98, 236, 0.3);
+        }
+    }
+
+    /* Кнопки выравниваем в ряд */
+    &__links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 10px;
+
+        @media (max-width: 480px) {
+            flex-direction: column;
+            width: 100%;
+
+            a {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/* Кнопка Live Demo */
+.btn--live {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #00d2ff, #0072ff);
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(0, 210, 255, 0.3);
+    transition: all 0.25s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 210, 255, 0.5);
+    }
+}

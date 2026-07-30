@@ -1,0 +1,160 @@
+.header {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    overflow: hidden;
+
+    /* Фоновые светящиеся 3D сферы */
+    &__blur-shape {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+        opacity: 0.45;
+        z-index: 1;
+        pointer-events: none;
+        will-change: transform; // Оптимизация видеокарты
+    }
+
+    .shape-1 {
+        width: 380px;
+        height: 380px;
+        background: #5c62ec;
+        top: -50px;
+        left: 10%;
+        animation: float 12s ease-in-out infinite alternate;
+    }
+
+    .shape-2 {
+        width: 450px;
+        height: 450px;
+        background: #8a21e9;
+        bottom: -100px;
+        right: 10%;
+        animation: float 16s ease-in-out infinite alternate-reverse;
+    }
+
+    .shape-3 {
+        width: 280px;
+        height: 280px;
+        background: #00d2ff;
+        top: 40%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+        animation: pulse 10s ease-in-out infinite alternate;
+    }
+
+    &__wrapper {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        
+        padding: clamp(24px, 5vw, 40px);
+        background: rgba(15, 17, 23, 0.65);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    &__title {
+        font-size: clamp(2.2rem, 5vw + 1rem, 3.8rem);
+        font-weight: 700;
+        line-height: 1.15;
+        color: #ffffff;
+
+        em {
+            font-style: normal;
+            background: linear-gradient(135deg, #5c62ec, #8a21e9, #00d2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header__subtitle {
+            display: block;
+            margin-top: 10px;
+            font-size: clamp(1.1rem, 2vw + 0.4rem, 1.6rem);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+        }
+    }
+
+    &__text {
+        font-size: clamp(0.95rem, 1.2vw + 0.4rem, 1.15rem);
+        color: rgba(255, 255, 255, 0.65);
+        max-width: 560px;
+        line-height: 1.6;
+    }
+
+    &__btns {
+        display: flex;
+        gap: 16px;
+        margin-top: 10px;
+
+        @media (max-width: 480px) {
+            flex-direction: column;
+            width: 100%;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/* Анимации движения шаров */
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(40px) rotate(30deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1) translate(-50%, -50%); }
+    100% { transform: scale(1.25) translate(-40%, -40%); }
+}
+
+/* Кнопки */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+
+    &--primary {
+        background: linear-gradient(135deg, #5c62ec, #8a21e9);
+        color: #ffffff;
+        box-shadow: 0 8px 25px rgba(92, 98, 236, 0.35);
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(138, 33, 233, 0.5);
+        }
+    }
+
+    &--outline {
+        background: rgba(255, 255, 255, 0.05);
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+    }
+}

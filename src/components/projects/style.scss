@@ -1,0 +1,201 @@
+// /* Сетка для проектов */
+// .projects {
+//     display: grid;
+//     // Гибкие колонки: автоматически подстраиваются под ширину экрана
+//     grid-template-columns: repeat(3, 1fr);
+//     gap: clamp(16px, 3vw, 30px); // Динамический отступ между карточками
+//     width: 100%;
+//     padding: 0;
+//     margin: 0 auto;
+
+//     /* Планшеты */
+//     @media (max-width: 992px) {
+//         grid-template-columns: repeat(2, 1fr);
+//     }
+
+//     /* Мобильные устройства */
+//     @media (max-width: 640px) {
+//         grid-template-columns: 1fr;
+//         max-width: 400px; // Ограничиваем максимальную ширину на смартфонах, чтобы карточка не расплывалась на весь экран
+//     }
+// }
+
+// .project {
+//     width: 100%;
+//     background: rgba(255, 255, 255, 0.03);
+//     backdrop-filter: blur(10px);
+//     border: 1px solid rgba(255, 255, 255, 0.08);
+//     border-radius: 16px;
+//     overflow: hidden;
+//     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+//                 box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+//                 border-color 0.3s ease;
+
+//     &:hover {
+//         transform: translateY(-6px);
+//         border-color: rgba(92, 98, 236, 0.4);
+//         box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3), 
+//                     0 0 16px rgba(92, 98, 236, 0.15);
+
+//         .project__img {
+//             transform: scale(1.05);
+//         }
+
+//         .project__title {
+//             color: var(--accent);
+//         }
+//     }
+
+//     &__link {
+//         display: flex;
+//         flex-direction: column;
+//         height: 100%;
+//         color: inherit;
+//         text-decoration: none;
+//     }
+
+//     &__img-wrapper {
+//         width: 100%;
+//         /* Адаптивное соотношение сторон 16:9 вместо фиксированных 220px */
+//         aspect-ratio: 16 / 9;
+//         overflow: hidden;
+//         border-radius: 16px 16px 0 0;
+//         background-color: rgba(0, 0, 0, 0.2); // фоновый заглушка
+//     }
+
+//     &__img {
+//         width: 100%;
+//         height: 100%;
+//         object-fit: cover;
+//         transition: transform 0.4s ease;
+//     }
+
+//     &__title {
+//         // clamp() плавно уменьшает размер шрифта от 18px на мобилках до 22px на ПК
+//         font-size: clamp(1.125rem, 1.5vw + 0.8rem, 1.375rem);
+//         font-weight: 600;
+//         line-height: 1.3;
+//         padding: clamp(12px, 2vw, 20px);
+//         color: var(--project-card-text);
+//         transition: color 0.3s ease;
+//     }
+// }
+// /* Сетка для проектов на CSS Grid */
+// .projects {
+//     display: grid;
+//     grid-template-columns: repeat(3, 1fr); // 3 одинаковые колонки на ПК
+//     gap: 30px; // Расстояние между карточками
+//     justify-items: center;
+//     width: 100%;
+//     padding: 0;
+//     margin: 0 auto;
+
+//     /* Адаптируем под планшеты */
+//     @media (max-width: 992px) {
+//         grid-template-columns: repeat(2, 1fr); // 2 колонки
+//         gap: 20px;
+//     }
+
+//     /* Адаптируем под мобильные */
+//     @media (max-width: 620px) {
+//         grid-template-columns: 1fr; // 1 колонка
+//     }
+// }
+
+
+.project-card {
+    background: rgba(15, 17, 23, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 22px;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+
+    &__link {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    &__img-wrapper {
+        position: relative;
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+
+        .project-card__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        /* Эффект плашки "Смотреть кейс" при наведении */
+        .project-card__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(12, 14, 20, 0.75);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+
+            span {
+                color: #ffffff;
+                font-weight: 600;
+                font-size: 15px;
+                padding: 10px 20px;
+                border-radius: 30px;
+                background: linear-gradient(135deg, #5c62ec, #8a21e9);
+                transform: translateY(10px);
+                transition: transform 0.3s ease;
+            }
+        }
+    }
+
+    &__info {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex-grow: 1;
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0;
+    }
+
+    &__skills {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    /* ЭФФЕКТЫ ПРИ НАВЕДЕНИИ */
+    &:hover {
+        transform: translateY(-8px);
+        border-color: rgba(92, 98, 236, 0.4);
+        box-shadow: 0 20px 40px rgba(92, 98, 236, 0.25);
+
+        .project-card__img {
+            transform: scale(1.08);
+        }
+
+        .project-card__overlay {
+            opacity: 1;
+
+            span {
+                transform: translateY(0);
+            }
+        }
+    }
+}

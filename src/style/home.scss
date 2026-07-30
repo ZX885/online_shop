@@ -1,0 +1,154 @@
+.home-page {
+    padding: 60px 0 40px;
+
+    .section-title {
+        text-align: center;
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 45px;
+
+        span {
+            background: linear-gradient(135deg, #5c62ec, #8a21e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}
+
+/* ==========================================
+   СЕТКА НАВЫКОВ (SKILLS GRID)
+   ========================================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 70px;
+
+    @media (max-width: 992px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.skill-card {
+    background: rgba(15, 17, 23, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 22px;
+    padding: 28px 24px;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+        transform: translateY(-6px);
+        border-color: rgba(92, 98, 236, 0.4);
+        box-shadow: 0 20px 40px rgba(92, 98, 236, 0.2);
+        background: rgba(20, 24, 35, 0.85);
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 20px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    &__icon {
+        font-size: 26px;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #ffffff;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+/* Бейджи технологий */
+.skill-badge {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 6px 14px;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+
+    &:hover {
+        background: rgba(92, 98, 236, 0.2);
+        border-color: #5c62ec;
+        color: #ffffff;
+        transform: scale(1.05);
+    }
+}
+
+/* ==========================================
+   ПРОМО-БЛОК ПРОЕКТОВ (FEATURED CARD)
+   ========================================== */
+.featured-section {
+    margin-top: 20px;
+}
+
+.featured-card {
+    position: relative;
+    border-radius: 28px;
+    padding: 48px 32px;
+    background: linear-gradient(135deg, rgba(33, 1, 236, 0.25), rgba(138, 33, 233, 0.25));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+    text-align: center;
+
+    &__content {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__badge {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 5px 14px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #00d2ff;
+        border: 1px solid rgba(0, 210, 255, 0.3);
+    }
+}

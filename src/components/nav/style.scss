@@ -1,0 +1,179 @@
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==========================================
+   ПЛАВАЮЩАЯ ШАПКА (FLOATING GLASS NAVBAR)
+   ========================================== */
+.nav {
+    position: sticky;
+    top: 15px; // Отступ от верха экрана (15px)
+    z-index: 100;
+
+    width: calc(100% - 30px); // Отступ от левого и правого края (по 15px)
+    max-width: 1200px; // Ограничение по ширине
+    margin: 0 auto; // Центрирование
+    padding: 12px 24px;
+
+    /* Твой оригинальный стеклянный эффект (Glassmorphism) */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+
+    /* Заменили all на конкретные свойства, чтобы позиционирование не лагало при скролле */
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+    .nav-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        color: var(--nav-text, #ffffff);
+        font-size: 20px;
+        font-family: 'Poppins', sans-serif;
+        text-decoration: none;
+
+        strong {
+            font-weight: 700;
+            color: var(--accent);
+        }
+    }
+
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .desktop-nav {
+        display: flex;
+        align-items: center;
+        column-gap: 30px;
+        font-size: 15px;
+        font-weight: 500;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+
+        .nav-list__link {
+            color: var(--nav-text, rgba(255, 255, 255, 0.8));
+            text-decoration: none;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: var(--accent);
+            }
+
+            &--active {
+                position: relative;
+                color: var(--accent);
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -6px;
+                    height: 2px;
+                    width: 100%;
+                    background-color: var(--accent);
+                    border-radius: 2px;
+                }
+            }
+        }
+
+        .connect {
+            background: linear-gradient(135deg, #2101ec, #8a21e9);
+            padding: 8px 18px;
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(138, 33, 233, 0.4);
+            }
+
+            .nav-list__link {
+                color: #ffffff;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+/* ==========================================
+   МОБИЛЬНАЯ НИЖНЯЯ ПАНЕЛЬ (MOBILE BOTTOM DOCK)
+   ========================================== */
+.mobile-bottom-nav {
+    display: none;
+
+    @media (max-width: 768px) {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 30px);
+        max-width: 420px;
+        height: 64px;
+
+        background: rgba(18, 18, 20, 0.75);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        padding: 0 10px;
+        z-index: 1000;
+
+        .mobile-nav__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 500;
+            transition: color 0.2s ease, transform 0.2s ease;
+            width: 60px;
+            height: 100%;
+
+            .mobile-nav__icon {
+                width: 22px;
+                height: 22px;
+                transition: transform 0.2s ease, stroke 0.2s ease;
+            }
+
+            &.active {
+                color: #5c62ec;
+
+                .mobile-nav__icon {
+                    transform: translateY(-2px);
+                    stroke: #5c62ec;
+                }
+            }
+
+            &:active {
+                transform: scale(0.92);
+            }
+        }
+
+        .tg-link {
+            color: #2AABEE;
+        }
+    }
+}

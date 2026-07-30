@@ -16,15 +16,26 @@ import projects05Big from './../img/projects/05-big.jpg'
 import projects06 from './../img/projects/06.jpg'
 import projects06Big from './../img/projects/06-big.jpg'
 
-const projects =[
+import projects07 from './../img/projects/07.png'
+// import projects07Big from './../img/projects/06-big.jpg'
 
+const projects = [
     {
-        title: "Gaming streaming portal",
-        skills: " React, Node.Js, MongoDB",
+        title: 'Startup Marketplace',
+        skills: 'React, Django, Django REST Framework, PostgreSQL',
         img: projects01,
         imgbig: projects01Big,
-        githubLink: 'https://github.com'
+        githubLink: 'https://github.com/ZX885',
+        demoLink: 'https://example.com', // Опционально
+        description: 'Полноценная маркетплейс-платформа с системой авторизации, фильтрации товаров и интеграцией платежей.'
     },
+    // {
+    //     title: "Gaming streaming portal",
+    //     skills: " React, Node.Js, MongoDB",
+    //     img: projects01,
+    //     imgbig: projects01Big,
+    //     githubLink: 'https://github.com'
+    // },
     {
         title: "Video service",
         skills: " React, PHP, MySql",
@@ -58,10 +69,10 @@ const projects =[
         githubLink: 'https://github.com'
     },
     {
-        title: "Online store",
-        skills: " React, Django, Node.js, MongoDB",
-        img: projects06,
-        imgbig: projects06Big,
+        title: "Telegram bots",
+        skills: "Python, Aiogram",
+        img: projects07,
+        imgbig: projects07,
         githubLink: 'https://github.com'
     },
 ]
