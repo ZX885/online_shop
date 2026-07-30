@@ -27,6 +27,15 @@ body {
     overflow-x: clip;
 }
 
+body {
+    @media (max-width: 768px) {
+        padding-top: 85px;
+        /* Отступ под верхнюю шапку */
+        padding-bottom: 90px;
+        /* Отступ под нижний док */
+    }
+}
+
 #root {
     min-height: 100vh;
 }
@@ -168,6 +177,7 @@ body {
     body {
         padding-bottom: 80px;
     }
+
     .section {
         padding: 40px 0;
     }

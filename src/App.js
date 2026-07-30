@@ -59,6 +59,14 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 300,
+      once: true,
+      disable: 'mobile' // 🚀 Отключает тяжелые JS-анимации на телефонах, плавно и быстро!
+    });
+  }, []);
+
   return (
     <div className='App'>
       <Router>
