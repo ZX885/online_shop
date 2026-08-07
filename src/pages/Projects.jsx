@@ -6,14 +6,17 @@ import "./../style/projects.scss";
 const Projects = () => {
     const [filter, setFilter] = useState('All');
 
-    // Категории фильтров
-    const categories = ['All', 'Python', 'React', 'Frontend', 'Backend', 'Fullstack',];
+    const categories = ['All', 'Python', 'React', 'Frontend', 'Backend', 'Fullstack'];
 
-    // Отфильтрованный список проектов
     const filteredProjects = projects.filter((project) => {
         if (filter === 'All') return true;
-        const category = project.category || project.skills || '';
-        return category.toLowerCase().includes(filter.toLowerCase());
+
+        const category = project.category || '';
+        const skills = project.skills || '';
+        const term = filter.toLowerCase();
+
+        if (category.toLowerCase() === term) return true;
+        return skills.toLowerCase().includes(term);
     });
 
     return (
@@ -23,7 +26,6 @@ const Projects = () => {
                     My <span>Projects</span>
                 </h1>
 
-                {/* Табы-фильтры */}
                 <div className="projects__filters" data-aos="fade-up">
                     {categories.map((cat) => (
                         <button
@@ -37,11 +39,11 @@ const Projects = () => {
                     ))}
                 </div>
 
-                {/* Сетка проектов */}
                 <ul className="projects-grid">
                     {filteredProjects.map((project, index) => (
                         <ProjectCard
-                            key={project.id || index}
+                            key={project.id}
+                            id={project.id}
                             title={project.title}
                             img={project.img}
                             skills={project.skills}

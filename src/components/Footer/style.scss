@@ -2,19 +2,18 @@
     position: relative;
     margin-top: 80px;
     padding: 50px 0 30px;
-    
-    /* Тёмный стеклянный фон */
+
     background: rgba(12, 14, 20, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-    /* Запас снизу для мобильного Dock навигатора */
     @media (max-width: 768px) {
         padding-bottom: 95px;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
     }
 
-    /* Сетка основных колонок с центрированием */
     &__grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -33,12 +32,11 @@
         }
     }
 
-    /* Центрирование внутри каждой колонки */
     &__col {
         display: flex;
         flex-direction: column;
-        align-items: center; // Выравнивает список и содержимое по центру
-        text-align: center;  // Выравнивает текст и заголовки по центру
+        align-items: center;
+        text-align: center;
     }
 
     &__title {
@@ -56,7 +54,7 @@
         margin: 0;
         display: flex;
         flex-direction: column;
-        align-items: center; // Центрирование элементов списка
+        align-items: center;
         gap: 10px;
 
         li {
@@ -71,8 +69,8 @@
                 display: inline-block;
 
                 &:hover {
-                    color: var(--accent, #5c62ec);
-                    transform: translateY(-2px); // При наведении чуть приподнимается вверх
+                    color: var(--accent-color);
+                    transform: translateY(-2px);
                 }
             }
         }
@@ -82,7 +80,6 @@
         }
     }
 
-    /* Нижняя часть футера */
     &__bottom {
         display: flex;
         flex-direction: column;
@@ -93,7 +90,6 @@
     }
 }
 
-/* Иконки соцсетей с ховер-эффектами */
 .social {
     display: flex;
     align-items: center;
@@ -113,7 +109,10 @@
             border-radius: 12px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
             img {
                 width: 20px;

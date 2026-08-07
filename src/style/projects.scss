@@ -10,13 +10,13 @@
 
         span {
             background: linear-gradient(135deg, #5c62ec, #8a21e9);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
     }
 }
 
-/* Кнопки-фильтры */
 .projects__filters {
     display: flex;
     justify-content: center;
@@ -34,8 +34,12 @@
         background: rgba(15, 17, 23, 0.6);
         border: 1px solid rgba(255, 255, 255, 0.12);
         backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                    background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
         &:hover {
             color: #ffffff;
@@ -53,7 +57,6 @@
     }
 }
 
-/* Адаптивная Grid-сетка карточек */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

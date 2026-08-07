@@ -4,25 +4,25 @@ import './btnScrollTop.scss';
 const BtnScrollTop = () => {
     const [isVisible, setIsVisible] = useState(false);
 
-    // Показываем кнопку, если отскроллили больше 300px
     useEffect(() => {
         const toggleVisibility = () => {
-            if (window.scrollY > 300) {
-                setIsVisible(true);
-            } else {
+            try {
+                setIsVisible(window.scrollY > 300);
+            } catch {
                 setIsVisible(false);
             }
         };
 
-        window.addEventListener('scroll', toggleVisibility);
+        window.addEventListener('scroll', toggleVisibility, { passive: true });
         return () => window.removeEventListener('scroll', toggleVisibility);
     }, []);
 
     const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth', // Плавный скролл наверх
-        });
+        try {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } catch {
+            window.scrollTo(0, 0);
+        }
     };
 
     return (

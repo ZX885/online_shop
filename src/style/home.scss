@@ -10,15 +10,13 @@
 
         span {
             background: linear-gradient(135deg, #5c62ec, #8a21e9);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
     }
 }
 
-/* ==========================================
-   СЕТКА НАВЫКОВ (SKILLS GRID)
-   ========================================== */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -41,7 +39,10 @@
     -webkit-backdrop-filter: blur(16px);
     border-radius: 22px;
     padding: 28px 24px;
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                background 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 
     &:hover {
@@ -78,9 +79,13 @@
         flex-wrap: wrap;
         gap: 10px;
     }
+
+    @media (max-width: 768px) {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
 }
 
-/* Бейджи технологий */
 .skill-badge {
     font-size: 13px;
     font-weight: 500;
@@ -89,7 +94,10 @@
     border: 1px solid rgba(255, 255, 255, 0.12);
     padding: 6px 14px;
     border-radius: 10px;
-    transition: all 0.25s ease;
+    transition: transform 0.25s ease,
+                background 0.25s ease,
+                border-color 0.25s ease,
+                color 0.25s ease;
 
     &:hover {
         background: rgba(92, 98, 236, 0.2);
@@ -99,9 +107,6 @@
     }
 }
 
-/* ==========================================
-   ПРОМО-БЛОК ПРОЕКТОВ (FEATURED CARD)
-   ========================================== */
 .featured-section {
     margin-top: 20px;
 }
@@ -116,6 +121,11 @@
     -webkit-backdrop-filter: blur(20px);
     overflow: hidden;
     text-align: center;
+
+    @media (max-width: 768px) {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
 
     &__content {
         max-width: 600px;

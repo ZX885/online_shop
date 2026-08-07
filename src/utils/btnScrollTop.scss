@@ -5,25 +5,28 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    
-    /* Тёмный Glassmorphism */
+
     background: rgba(15, 17, 23, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     color: #ffffff;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 99;
-    
-    /* Начальное состояние (скрыта) */
+    z-index: 999;
+
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px) scale(0.8);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 
     &--visible {
@@ -44,9 +47,11 @@
     }
 
     @media (max-width: 768px) {
-        bottom: 20px;
+        bottom: 95px;
         right: 20px;
         width: 42px;
         height: 42px;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
     }
 }

@@ -5,7 +5,7 @@ const Contacts = () => {
     return (
         <main className="section contacts-section">
             <div className="container">
-                <h1 className="title-1" data-aos="fade-down">Contacts</h1>
+                <h1 className="title-1" data-aos="fade-down">My <span>Contacts</span></h1>
 
                 <div className="contact__wrapper">
                     {/* Левый блок: Ваше фото / Аватар */}

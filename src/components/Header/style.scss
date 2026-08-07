@@ -7,7 +7,6 @@
     padding: 60px 20px;
     overflow: hidden;
 
-    /* Фоновые светящиеся 3D сферы */
     &__blur-shape {
         position: absolute;
         border-radius: 50%;
@@ -15,7 +14,6 @@
         opacity: 0.45;
         z-index: 1;
         pointer-events: none;
-        will-change: transform; // Оптимизация видеокарты
     }
 
     .shape-1 {
@@ -56,7 +54,7 @@
         flex-direction: column;
         align-items: center;
         gap: 20px;
-        
+
         padding: clamp(24px, 5vw, 40px);
         background: rgba(15, 17, 23, 0.65);
         backdrop-filter: blur(16px);
@@ -75,6 +73,7 @@
         em {
             font-style: normal;
             background: linear-gradient(135deg, #5c62ec, #8a21e9, #00d2ff);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -109,9 +108,18 @@
             }
         }
     }
+
+    @media (max-width: 768px) {
+        min-height: 70vh;
+
+        &__blur-shape {
+            animation: none;
+            opacity: 0.3;
+            filter: blur(60px);
+        }
+    }
 }
 
-/* Анимации движения шаров */
 @keyframes float {
     0% { transform: translateY(0) rotate(0deg); }
     100% { transform: translateY(40px) rotate(30deg); }
@@ -120,41 +128,4 @@
 @keyframes pulse {
     0% { transform: scale(1) translate(-50%, -50%); }
     100% { transform: scale(1.25) translate(-40%, -40%); }
-}
-
-/* Кнопки */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 28px;
-    border-radius: 14px;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    cursor: pointer;
-
-    &--primary {
-        background: linear-gradient(135deg, #5c62ec, #8a21e9);
-        color: #ffffff;
-        box-shadow: 0 8px 25px rgba(92, 98, 236, 0.35);
-
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(138, 33, 233, 0.5);
-        }
-    }
-
-    &--outline {
-        background: rgba(255, 255, 255, 0.05);
-        color: #ffffff;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-
-        &:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-2px);
-        }
-    }
 }

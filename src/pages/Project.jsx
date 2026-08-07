@@ -5,9 +5,8 @@ import "./../style/project.scss";
 
 const Project = () => {
     const { id } = useParams();
-    const project = projects[id];
+    const project = projects.find((item) => item.id === id);
 
-    // Если проект не найден
     if (!project) {
         return (
             <main className="section project-page">
@@ -21,13 +20,11 @@ const Project = () => {
         );
     }
 
-    // Превращаем строку навыков в массив для рендера бейджей
-    const skillsArray = project.skills ? project.skills.split(',').map(s => s.trim()) : [];
+    const skillsArray = project.skills ? project.skills.split(',').map((s) => s.trim()) : [];
 
     return (
         <main className="section project-page">
             <div className="container">
-                {/* Кнопка навигации назад */}
                 <div className="project-page__back">
                     <Link to="/projects" className="back-link">
                         ← Вернуться к проектам
@@ -37,7 +34,6 @@ const Project = () => {
                 <div className="project-details">
                     <h1 className="title-1">{project.title}</h1>
 
-                    {/* Обложка проекта */}
                     <div className="project-details__cover-wrapper" data-aos="fade-up">
                         <img
                             src={project.imgbig || project.img}
@@ -46,7 +42,6 @@ const Project = () => {
                         />
                     </div>
 
-                    {/* Описание и стек */}
                     <div className="project-details__info" data-aos="fade-up" data-aos-delay="100">
                         {project.description && (
                             <div className="project-details__text">
@@ -66,7 +61,6 @@ const Project = () => {
                             </div>
                         </div>
 
-                        {/* Кнопки действий (GitHub + Live Demo) */}
                         <div className="project-details__links">
                             {project.githubLink && (
                                 <BtnGithub link={project.githubLink} />

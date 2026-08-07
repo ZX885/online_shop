@@ -1,14 +1,12 @@
 @import './reset.scss';
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap');
 
-
 :root {
-    /* Основные акценты */
     --purple: #5c62ec;
     --purple-light: #8a21e9;
+    --accent-color: #5c62ec;
     --accent: linear-gradient(135deg, #5c62ec, #8a21e9);
 
-    /* Тёмная тема по умолчанию */
     --page-bg: #0f1117;
     --text-color: #ffffff;
     --title-1: #ffffff;
@@ -30,9 +28,7 @@ body {
 body {
     @media (max-width: 768px) {
         padding-top: 85px;
-        /* Отступ под верхнюю шапку */
         padding-bottom: 90px;
-        /* Отступ под нижний док */
     }
 }
 
@@ -47,7 +43,6 @@ body {
     position: relative;
     background-color: var(--page-bg);
 
-    /* Мягкая фоновая неоновая подсветка */
     &::before {
         content: '';
         position: fixed;
@@ -76,8 +71,6 @@ body {
     z-index: 1;
 }
 
-/* Заголовки */
-
 .title-1 {
     margin-bottom: 40px;
     font-size: clamp(2.2rem, 5vw, 3.2rem);
@@ -88,6 +81,7 @@ body {
 
     span {
         background: var(--accent);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -99,8 +93,6 @@ body {
     font-weight: 700;
     line-height: 1.3;
 }
-
-/* Универсальные интерактивные кнопки */
 
 .btn {
     display: inline-flex;
@@ -117,7 +109,9 @@ body {
     border: none;
     cursor: pointer;
     box-shadow: 0 6px 20px rgba(92, 98, 236, 0.35);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
         transform: translateY(-2px);
@@ -127,6 +121,30 @@ body {
 
     &:active {
         transform: translateY(0);
+    }
+
+    &--primary {
+        background: var(--accent);
+        color: #ffffff;
+        box-shadow: 0 8px 25px rgba(92, 98, 236, 0.35);
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(138, 33, 233, 0.5);
+        }
+    }
+
+    &--outline {
+        background: rgba(255, 255, 255, 0.05);
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: none;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
     }
 }
 
@@ -141,12 +159,15 @@ body {
     border: 1px solid var(--card-border);
     background: var(--card-bg);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     color: var(--text-color);
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
 
     &:hover {
         border-color: rgba(92, 98, 236, 0.5);
@@ -159,20 +180,6 @@ body {
     }
 }
 
-/* Добавь это в main.scss или файлы со стилями карточек */
-
-.skill-card,
-.project-card,
-.featured-card,
-.project-details__info {
-    /* Выносит рендеринг элемента на отдельный слой GPU */
-    will-change: transform, opacity;
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-/* Мобильные адаптивные правила */
 @media (max-width: 768px) {
     body {
         padding-bottom: 80px;
@@ -184,5 +191,15 @@ body {
 
     .title-1 {
         margin-bottom: 24px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
